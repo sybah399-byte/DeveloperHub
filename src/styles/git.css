@@ -1,0 +1,40 @@
+.git-page {
+
+    padding:30px;
+
+}
+
+
+.git-page h1 {
+
+    margin-bottom:10px;
+
+}
+
+
+
+.git-page button {
+
+    margin-right:10px;
+    padding:10px 20px;
+    cursor:pointer;
+
+}
+
+
+
+.git-page pre {
+
+    margin-top:25px;
+    padding:20px;
+
+    background:#111;
+    color:#00ff88;
+
+    border-radius:8px;
+
+    min-height:150px;
+
+    overflow:auto;
+
+}

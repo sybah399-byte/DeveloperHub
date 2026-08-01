@@ -1,0 +1,39 @@
+body{
+  margin:0;
+  font-family:Arial, sans-serif;
+}
+
+
+.app{
+  display:flex;
+  height:100vh;
+}
+
+
+.sidebar{
+
+  width:240px;
+  background:#1e293b;
+  color:white;
+  padding:20px;
+
+}
+
+
+.sidebar button{
+
+  display:flex;
+  gap:10px;
+  width:100%;
+  padding:12px;
+  margin-top:10px;
+
+}
+
+
+main{
+
+  padding:30px;
+  flex:1;
+
+}
