@@ -1,19 +1,37 @@
-:root {
-  font-family: Inter, system-ui, Arial, sans-serif;
-  background: #0f172a;
-  color: #e2e8f0;
-}
-
-* {
-  box-sizing: border-box;
-}
-
 body {
-  margin: 0;
-  min-width: 320px;
-  min-height: 100vh;
+
+margin:0;
+
+background:#111;
+
+color:white;
+
+font-family:Arial, sans-serif;
+
 }
+
 
 button {
-  cursor: pointer;
+
+background:#222;
+
+color:white;
+
+border:1px solid #39ff14;
+
+padding:10px 15px;
+
+border-radius:8px;
+
+cursor:pointer;
+
+}
+
+
+button:hover {
+
+background:#39ff14;
+
+color:black;
+
 }

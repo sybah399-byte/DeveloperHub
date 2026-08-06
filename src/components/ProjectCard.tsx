@@ -1,39 +1,79 @@
+import type { ProjectInfo } from "../services/projectScanner";
+
 type Props = {
-
-project:any;
-
+    project: ProjectInfo;
 };
 
+export default function ProjectCard({ project }: Props) {
 
-export default function ProjectCard({project}:Props){
+    return (
 
-return (
+        <div className="project-card">
 
-<div className="project-card">
+            <div className="project-header">
 
+                <h2>{project.name}</h2>
 
-<h2>
-{project.name}
-</h2>
+                <span className="project-type">
+                    {project.type}
+                </span>
 
+            </div>
 
-<p>
-Type: {project.type}
-</p>
+            <div className="project-details">
 
+                <p>
+                    <strong>Path:</strong>
+                    <br />
+                    {project.path}
+                </p>
 
-<p>
-Progress: {project.progress}%
-</p>
+                <p>
+                    <strong>Status:</strong> {project.status}
+                </p>
 
+                <p>
+                    <strong>Health:</strong> {project.health}%
+                </p>
 
-<p>
-Status: {project.status}
-</p>
+                <p>
+                    <strong>Files:</strong> {project.files}
+                </p>
 
+                <p>
+                    <strong>Git Repository:</strong>{" "}
+                    {project.git ? "Yes" : "No"}
+                </p>
 
-</div>
+                {project.frameworks.length > 0 && (
 
-);
+                    <p>
+                        <strong>Frameworks:</strong>{" "}
+                        {project.frameworks.join(", ")}
+                    </p>
+
+                )}
+
+            </div>
+
+            <div className="project-checks">
+
+                <h3>Checks</h3>
+
+                {project.checks.map((check, index) => (
+
+                    <div key={index}>
+
+                        {check.found ? "✅" : "❌"} {check.name}
+
+                    </div>
+
+                ))}
+
+            </div>
+
+        </div>
+
+    );
 
 }

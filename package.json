@@ -8,18 +8,36 @@
     "build": "vite build",
     "preview": "vite preview",
     "electron": "electron .",
-    "electron:dev": "concurrently -k \"npm run dev\" \"npm run electron\""
+    "devhub": "concurrently -k \"npm run dev\" \"npx wait-on http://localhost:5173 && npm run electron\"",
+    "start": "npm run devhub"
   },
   "dependencies": {
     "@vitejs/plugin-react": "latest",
+    "adm-zip": "^0.6.0",
+    "better-sqlite3": "^13.0.3",
+    "chokidar": "^5.0.0",
+    "clsx": "^2.1.1",
+    "cross-spawn": "^7.0.6",
+    "electron-store": "^11.0.2",
+    "execa": "^10.0.1",
+    "fast-glob": "^3.3.3",
+    "fs-extra": "^11.4.0",
     "lucide-react": "^1.28.0",
     "react": "latest",
     "react-dom": "latest",
-    "react-router-dom": "^7.18.2"
+    "react-hot-toast": "^2.6.0",
+    "react-icons": "^5.7.0",
+    "react-router-dom": "^7.18.2",
+    "simple-git": "^3.36.0",
+    "sqlite3": "^6.0.1",
+    "uuid": "^14.0.1"
   },
   "devDependencies": {
-    "concurrently": "latest",
+    "concurrently": "^10.0.4",
     "electron": "latest",
+    "electron-builder": "^26.15.3",
+    "electron-reload": "^2.0.0-alpha.1",
+    "nodemon": "^3.1.14",
     "typescript": "latest",
     "vite": "latest",
     "wait-on": "^9.1.0"

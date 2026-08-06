@@ -1,0 +1,70 @@
+.dialog-overlay {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,.65);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 1000;
+}
+
+.dialog-window {
+    width: 500px;
+    background: #1f1f1f;
+    border: 2px solid #444;
+    border-radius: 12px;
+    padding: 24px;
+    color: white;
+}
+
+.dialog-window h2 {
+    margin-bottom: 10px;
+}
+
+.dialog-window p {
+    color: #bbb;
+    margin-bottom: 20px;
+}
+
+.dialog-window label {
+    display: block;
+    margin-top: 16px;
+    margin-bottom: 6px;
+    font-weight: bold;
+}
+
+.dialog-window input,
+.dialog-window select {
+    width: 100%;
+    padding: 10px;
+    border-radius: 8px;
+    border: 1px solid #555;
+    background: #2a2a2a;
+    color: white;
+    box-sizing: border-box;
+}
+
+.dialog-buttons {
+    display: flex;
+    justify-content: flex-end;
+    gap: 10px;
+    margin-top: 24px;
+}
+
+.cancel-button,
+.create-button {
+    padding: 10px 18px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.cancel-button {
+    background: #555;
+    color: white;
+}
+
+.create-button {
+    background: #00c853;
+    color: white;
+}

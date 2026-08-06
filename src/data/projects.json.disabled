@@ -1,0 +1,20 @@
+][
+  {
+    "name": "MensShedApp",
+    "description": "Community mobile application",
+    "type": "Expo",
+    "status": "Active"
+  },
+  {
+    "name": "DeveloperHub",
+    "description": "Development workspace",
+    "type": "Electron",
+    "status": "Active"
+  },
+  {
+    "name": "Jarvis",
+    "description": "AI Developer Assistant",
+    "type": "Node.js",
+    "status": "Planning"
+  }
+]
