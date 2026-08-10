@@ -6,6 +6,18 @@ interface NewProjectDialogProps {
     onClose: () => void;
 }
 
+declare global {
+    interface Window {
+        electronAPI: {
+            createProject(project: {
+                name: string;
+                type: string;
+                location: string;
+            }): Promise<any>;
+        };
+    }
+}
+
 export default function NewProjectDialog({
     isOpen,
     onClose,
@@ -17,35 +29,37 @@ export default function NewProjectDialog({
         "C:\\Users\\Nikki\\Documents\\Projects"
     );
 
-    function createProject() {
+    async function createProject() {
 
         if (!projectName.trim()) {
-
             alert("Please enter a project name.");
-
             return;
-
         }
 
-        alert(
-            `Project Name: ${projectName}\n\n` +
-            `Project Type: ${projectType}\n\n` +
-            `Project Folder: ${projectFolder}`
-        );
+        const result = await window.electronAPI.createProject({
+            name: projectName,
+            type: projectType,
+            location: projectFolder
+        });
 
+        if (result.success) {
+            alert(`Project created!\n\n${result.folder}`);
+            onClose();
+        } else {
+            alert(result.error);
+        }
     }
 
     if (!isOpen) return null;
 
     return (
-
         <div className="dialog-overlay">
 
             <div className="dialog-window">
 
                 <h2>New Project</h2>
 
-                <p>Create a new project for DeveloperHub.</p>
+                <p>Create a new project.</p>
 
                 <label>Project Name</label>
 
@@ -65,9 +79,8 @@ export default function NewProjectDialog({
                     <option>Expo React Native</option>
                     <option>React + Vite</option>
                     <option>Electron</option>
-                    <option>Node.js</option>
                     <option>Next.js</option>
-                    <option>HTML/CSS/JavaScript</option>
+                    <option>Node.js</option>
                     <option>Blank Project</option>
                 </select>
 
@@ -100,7 +113,5 @@ export default function NewProjectDialog({
             </div>
 
         </div>
-
     );
-
 }

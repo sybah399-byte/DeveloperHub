@@ -23,6 +23,8 @@ const {
     gitFetch
 } = require("./commands");
 
+const registerCreateProjectIPC =
+    require("./ipc/createProject");
 
 function createWindow() {
 
@@ -51,16 +53,13 @@ function createWindow() {
 
     });
 
-
     const viteURL =
         process.env.VITE_DEV_SERVER_URL ||
         "http://localhost:5173";
 
-
     win.loadURL(viteURL);
 
 }
-
 
 /*
 =========================================
@@ -77,7 +76,6 @@ ipcMain.handle(
     }
 );
 
-
 /*
 =========================================
 Project Scanner
@@ -92,7 +90,6 @@ ipcMain.handle(
 
     }
 );
-
 
 /*
 =========================================
@@ -109,7 +106,6 @@ ipcMain.handle(
     }
 );
 
-
 ipcMain.handle(
     "open-vscode",
     async (event, folder) => {
@@ -118,7 +114,6 @@ ipcMain.handle(
 
     }
 );
-
 
 ipcMain.handle(
     "open-terminal",
@@ -129,7 +124,6 @@ ipcMain.handle(
     }
 );
 
-
 ipcMain.handle(
     "run-expo",
     async (event, folder) => {
@@ -138,7 +132,6 @@ ipcMain.handle(
 
     }
 );
-
 
 /*
 =========================================
@@ -155,7 +148,6 @@ ipcMain.handle(
     }
 );
 
-
 ipcMain.handle(
     "git-branch",
     async (event, folder) => {
@@ -164,7 +156,6 @@ ipcMain.handle(
 
     }
 );
-
 
 ipcMain.handle(
     "git-init",
@@ -175,7 +166,6 @@ ipcMain.handle(
     }
 );
 
-
 ipcMain.handle(
     "git-add",
     async (event, folder) => {
@@ -184,7 +174,6 @@ ipcMain.handle(
 
     }
 );
-
 
 ipcMain.handle(
     "git-commit",
@@ -198,7 +187,6 @@ ipcMain.handle(
     }
 );
 
-
 ipcMain.handle(
     "git-pull",
     async (event, folder) => {
@@ -207,7 +195,6 @@ ipcMain.handle(
 
     }
 );
-
 
 ipcMain.handle(
     "git-push",
@@ -218,7 +205,6 @@ ipcMain.handle(
     }
 );
 
-
 ipcMain.handle(
     "git-fetch",
     async (event, folder) => {
@@ -228,13 +214,19 @@ ipcMain.handle(
     }
 );
 
+/*
+=========================================
+Project Creation
+=========================================
+*/
+
+registerCreateProjectIPC();
 
 app.whenReady().then(() => {
 
     createWindow();
 
 });
-
 
 app.on(
     "window-all-closed",
@@ -248,7 +240,6 @@ app.on(
 
     }
 );
-
 
 app.on(
     "activate",
