@@ -10,6 +10,10 @@ contextBridge.exposeInMainWorld("electronAPI", {
         return ipcRenderer.invoke("scan-project", folder);
     },
 
+    getProjects() {
+        return ipcRenderer.invoke("get-projects");
+    },
+
     openFolder(folder) {
         return ipcRenderer.invoke("open-folder", folder);
     },
